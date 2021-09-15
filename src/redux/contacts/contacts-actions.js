@@ -1,23 +1,23 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction } from '@reduxjs/toolkit';
 
 export const fetchPhoneBookRequest = createAction(
-  "contact/fetchPhoneBookRequest"
+  'contact/fetchPhoneBookRequest',
 );
 export const fetchPhoneBookSuccess = createAction(
-  "contact/fetchPhoneBookSuccess"
+  'contact/fetchPhoneBookSuccess',
 );
-export const fetchPhoneBookError = createAction("contact/fetchPhoneBookError");
+export const fetchPhoneBookError = createAction('contact/fetchPhoneBookError');
 
-export const addContactsRequest = createAction("contact/addContactsRequest");
-export const addContactsSuccess = createAction("contact/addContactsSuccess");
-export const addContactsError = createAction("contact/addContactsError");
+export const addContactsRequest = createAction('contact/addContactsRequest');
+export const addContactsSuccess = createAction('contact/addContactsSuccess');
+export const addContactsError = createAction('contact/addContactsError');
 
 export const deleteContactsRequest = createAction(
-  "contact/deleteContactsRequest"
+  'contact/deleteContactsRequest',
 );
 export const deleteContactsSuccess = createAction(
-  "contact/deleteContactsSuccess "
+  'contact/deleteContactsSuccess ',
 );
-export const deleteContactsError = createAction("contact/deleteContactsError");
+export const deleteContactsError = createAction('contact/deleteContactsError');
 
-export const filter = createAction("contact/filter");
+export const filter = createAction('contact/filter');

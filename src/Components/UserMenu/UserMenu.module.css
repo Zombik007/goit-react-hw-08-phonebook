@@ -1,5 +1,5 @@
 .img {
-  width: 25px;
+  width: 35px;
   margin-right: 15px;
 }
 .menu {
@@ -8,4 +8,8 @@
 }
 .text {
   margin-right: 15px;
+}
+
+.text_name {
+  font-weight: bold;
 }

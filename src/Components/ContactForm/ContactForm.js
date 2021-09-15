@@ -1,26 +1,26 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import { contactsOperations, contactsSelectors } from "../../redux/contacts";
-import { toast } from "react-toastify";
-import { v4 as uuid } from "uuid";
-import styles from "./ContactForm.module.css";
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { contactsOperations, contactsSelectors } from '../../redux/contacts';
+import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-toastify';
+import { v4 as uuid } from 'uuid';
+import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const contacts = useSelector((state) => contactsSelectors.getContacts(state));
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const contacts = useSelector(state => contactsSelectors.getContacts(state));
   const dispatch = useDispatch();
 
-  const inputChange = (e) => {
+  const inputChange = e => {
     const { name, value } = e.target;
 
     switch (name) {
-      case "name":
+      case 'name':
         setName(value);
         break;
 
-      case "number":
+      case 'number':
         setNumber(value);
         break;
 
@@ -29,14 +29,14 @@ export default function ContactForm() {
     }
   };
 
-  const formSubmit = (e) => {
+  const formSubmit = e => {
     e.preventDefault();
     const isContactExist = !!contacts.items.find(
-      (contact) => contact.name === name
+      contact => contact.name === name,
     );
     isContactExist &&
-      toast.error("Contact is already exist", {
-        theme: "colored",
+      toast.error('Contact is already exist', {
+        theme: 'colored',
       });
     return (
       !isContactExist &&
@@ -46,8 +46,8 @@ export default function ContactForm() {
   };
 
   const resetForm = () => {
-    setName("");
-    setNumber("");
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -81,7 +81,12 @@ export default function ContactForm() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" classMame="ml-5">
+        <Button
+          className={styles.button}
+          variant="outline-primary"
+          type="submit"
+          classMame="ml-5"
+        >
           Add contact
         </Button>
       </Form>

@@ -1,6 +1,7 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styles from "./AuthNav.module.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import styles from './AuthNav.module.css';
 
 export default function AuthNav() {
   return (
@@ -16,10 +17,12 @@ export default function AuthNav() {
       <NavLink
         to="/login"
         exact
-        className={styles.link}
-        activeClassName={styles.activelink}
+        // className={styles.link}
+        // activeClassName={styles.activelink}
       >
-        LogIn
+        <Button variant="outline-primary" type="button" size="sm">
+          LogIn
+        </Button>
       </NavLink>
     </div>
   );

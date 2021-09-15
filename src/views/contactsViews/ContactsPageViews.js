@@ -1,7 +1,7 @@
-import styles from "./ContactsViews.module.css";
-import ContactForm from "../../Components/ContactForm/ContactForm";
-import ContactList from "../../Components/ContactList/ContactList";
-import Filter from "../../Components/FilterContact/FilterContact";
+import ContactForm from '../../Components/ContactForm/ContactForm';
+import ContactList from '../../Components/ContactList/ContactList';
+import Filter from '../../Components/FilterContact/FilterContact';
+import styles from './ContactsViews.module.css';
 
 export default function ContactsViews() {
   return (

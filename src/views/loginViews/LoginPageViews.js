@@ -1,20 +1,20 @@
-import styles from "./LoginViews.module.css";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { authOperations } from "../../redux/auth";
-import { Button, Form } from "react-bootstrap";
-import { toast } from "react-toastify";
+import styles from './LoginViews.module.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from '../../redux/auth';
+import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 export default function LoginViews() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handlerChange = ({ target: { name, value } }) => {
     switch (name) {
-      case "email":
+      case 'email':
         return setEmail(value);
-      case "password":
+      case 'password':
         return setPassword(value);
 
       default:
@@ -22,16 +22,16 @@ export default function LoginViews() {
     }
   };
 
-  const handlerSubmit = (e) => {
+  const handlerSubmit = e => {
     e.preventDefault();
 
     email.length === 0 || password.length === 0
-      ? toast.error("Заполните все поля", {
-          theme: "colored",
+      ? toast.error('Заполните все поля', {
+          theme: 'colored',
         })
       : dispatch(authOperations.logIn({ email, password }));
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -63,7 +63,7 @@ export default function LoginViews() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outline-primary" type="submit">
           Submit
         </Button>
       </Form>

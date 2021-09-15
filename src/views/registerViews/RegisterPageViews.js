@@ -1,25 +1,25 @@
-import styles from "./RegistersViews.module.css";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { authOperations } from "../../redux/auth";
-import { Button, Form } from "react-bootstrap";
-import { toast } from "react-toastify";
+import styles from './RegistersViews.module.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authOperations } from '../../redux/auth';
+import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 export default function RegisterViews() {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handlerChange = ({ target: { name, value } }) => {
     switch (name) {
-      case "name":
+      case 'name':
         return setName(value);
 
-      case "email":
+      case 'email':
         return setEmail(value);
 
-      case "password":
+      case 'password':
         return setPassword(value);
 
       default:
@@ -27,16 +27,16 @@ export default function RegisterViews() {
     }
   };
 
-  const handlerSubmit = (e) => {
+  const handlerSubmit = e => {
     e.preventDefault();
     name.length === 0 || email.length === 0 || password.length === 0
-      ? toast.error("Заполните все поля", {
-          theme: "colored",
+      ? toast.error('Заполните все поля', {
+          theme: 'colored',
         })
       : dispatch(authOperations.register({ name, email, password }));
-    setName("");
-    setEmail("");
-    setPassword("");
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -79,7 +79,7 @@ export default function RegisterViews() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="outline-primary" type="submit">
           Registration
         </Button>
       </Form>
