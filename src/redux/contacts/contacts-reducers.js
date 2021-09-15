@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
-import { createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from 'redux';
+import { createReducer } from '@reduxjs/toolkit';
 import {
-  fetchPhoneBookRequest,
-  fetchPhoneBookSuccess,
-  fetchPhoneBookError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   addContactsRequest,
   addContactsSuccess,
   addContactsError,
@@ -11,19 +11,19 @@ import {
   deleteContactsSuccess,
   deleteContactsError,
   filter,
-} from "./contacts-actions";
+} from './contacts-actions';
 
 const itemReducer = createReducer([], {
-  [fetchPhoneBookSuccess]: (_, { payload }) => payload,
+  [fetchContactsSuccess]: (_, { payload }) => payload,
   [addContactsSuccess]: (state, { payload }) => [...state, { ...payload }],
   [deleteContactsSuccess]: (state, { payload }) =>
     state.filter(({ id }) => id !== payload),
 });
 
 const isLoading = createReducer(false, {
-  [fetchPhoneBookRequest]: () => true,
-  [fetchPhoneBookSuccess]: () => false,
-  [fetchPhoneBookError]: () => false,
+  [fetchContactsRequest]: () => true,
+  [fetchContactsSuccess]: () => false,
+  [fetchContactsError]: () => false,
   [addContactsRequest]: () => true,
   [addContactsSuccess]: () => false,
   [addContactsError]: () => false,
@@ -33,12 +33,8 @@ const isLoading = createReducer(false, {
 });
 
 const error = createReducer(null, {});
-// const error = createReducer(null, {
-// 	[actions.fetchPhoneBookError]: (_, action) => action.payload,
-// 	[actions.fetchPhoneBookRequest]: () => null,
-// })
 
-const filterReducer = createReducer("", {
+const filterReducer = createReducer('', {
   [filter]: (_, { payload }) => payload,
 });
 

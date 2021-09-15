@@ -1,37 +1,37 @@
-import axios from "axios";
+import axios from 'axios';
 import {
-  fetchPhoneBookRequest,
-  fetchPhoneBookSuccess,
-  fetchPhoneBookError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  fetchContactsError,
   addContactsRequest,
   addContactsSuccess,
   addContactsError,
   deleteContactsRequest,
   deleteContactsSuccess,
   deleteContactsError,
-} from "./contacts-actions";
+} from './contacts-actions';
 
-const fetchContacts = () => async (dispatch) => {
-  dispatch(fetchPhoneBookRequest());
+const fetchContacts = () => async dispatch => {
+  dispatch(fetchContactsRequest());
   try {
-    const { data } = await axios.get("/contacts");
-    dispatch(fetchPhoneBookSuccess(data));
+    const { data } = await axios.get('/contacts');
+    dispatch(fetchContactsSuccess(data));
   } catch (error) {
-    dispatch(fetchPhoneBookError());
+    dispatch(fetchContactsError());
   }
 };
 
-const addContacts = (item) => async (dispatch) => {
+const addContacts = item => async dispatch => {
   dispatch(addContactsRequest);
   try {
-    const { data } = await axios.post("contacts", item);
+    const { data } = await axios.post('contacts', item);
     dispatch(addContactsSuccess(data));
   } catch (error) {
     dispatch(addContactsError());
   }
 };
 
-const deleteContacts = (contactsId) => async (dispatch) => {
+const deleteContacts = contactsId => async dispatch => {
   deleteContactsRequest();
   try {
     await axios.delete(`contacts/${contactsId}`);
