@@ -1,0 +1,11 @@
+.img {
+  width: 25px;
+  margin-right: 15px;
+}
+.menu {
+  display: flex;
+  align-items: center;
+}
+.text {
+  margin-right: 15px;
+}

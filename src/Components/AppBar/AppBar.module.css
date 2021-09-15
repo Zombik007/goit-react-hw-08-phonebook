@@ -1,0 +1,6 @@
+.heder {
+  display: flex;
+  border-bottom: 1px solid #2a363b;
+  align-items: center;
+  justify-content: space-between;
+}

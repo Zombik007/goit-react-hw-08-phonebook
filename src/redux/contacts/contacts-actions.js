@@ -1,19 +1,23 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const fetchContactsRequest = createAction(
-  "contacts/fetchContactsRequest"
+export const fetchPhoneBookRequest = createAction(
+  "contact/fetchPhoneBookRequest"
 );
-export const fetchContactsSucces = createAction("contacts/fetchContactsSucces");
-export const fetchContactsError = createAction("contacts/fetchContactsError");
-
-export const addContactsRequest = createAction("contacts/addContactsRequest");
-export const addContactsSucces = createAction("contacts/addContactsSucces");
-export const addContactsError = createAction("contacts/addContactsError");
-
-export const deleteContactRequest = createAction(
-  "contacts/deleteContactRequest"
+export const fetchPhoneBookSuccess = createAction(
+  "contact/fetchPhoneBookSuccess"
 );
-export const deleteContactSucces = createAction("contacts/deleteContactSucces");
-export const deleteContactError = createAction("contacts/deleteContactError");
+export const fetchPhoneBookError = createAction("contact/fetchPhoneBookError");
 
-export const filterContact = createAction("contacts/Filter");
+export const addContactsRequest = createAction("contact/addContactsRequest");
+export const addContactsSuccess = createAction("contact/addContactsSuccess");
+export const addContactsError = createAction("contact/addContactsError");
+
+export const deleteContactsRequest = createAction(
+  "contact/deleteContactsRequest"
+);
+export const deleteContactsSuccess = createAction(
+  "contact/deleteContactsSuccess "
+);
+export const deleteContactsError = createAction("contact/deleteContactsError");
+
+export const filter = createAction("contact/filter");
